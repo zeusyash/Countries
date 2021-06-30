@@ -1,6 +1,14 @@
 package com.yashwant.countries.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class CountriesModel {
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    int id;
     String name;
     String capital;
     String flag;
@@ -9,6 +17,21 @@ public class CountriesModel {
     String borders;
     String languages;
     int population;
+
+    public CountriesModel(){
+
+    }
+    public CountriesModel(int id,String name, String capital, String flag, String region, String subregion, String borders, String languages, int population) {
+        this.name = name;
+        this.id = id;
+        this.capital = capital;
+        this.flag = flag;
+        this.region = region;
+        this.subregion = subregion;
+        this.borders = borders;
+        this.languages = languages;
+        this.population = population;
+    }
 
     public String getName() {
         return name;
@@ -72,5 +95,13 @@ public class CountriesModel {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
